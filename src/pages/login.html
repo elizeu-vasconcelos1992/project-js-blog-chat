@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body>
+
+    <main class="mainCadastro">
+        <div class="container">
+            <span>X</span>
+            <div id="containerLogin">
+            <h2>Login</h2>
+            <form action="#" id="formLogin">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password"name="password" placeholder="Senha" >
+                <button id="btnLogin">Login</button>
+            </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="modalLogin">
+        <div>
+            <h3>Erro no Login</h3>
+            <p> <a href="#" id="direcionarLogin">Tente novamente</a> ou <a href="#" id="direcionarCadastro">Cadastre-se </a>para acessar</p>
+        </div>
+    </div>
+    
+
+    <script type="module" src="/src/modulos/login.js"></script>
+</body>
+</html>
