@@ -74,6 +74,18 @@ class Login {
             window.location.href = "cadastro.html";
         })
     }
+
+    static fecharLogin() {
+
+        const fecharLogin = document.querySelector("#fecharLogin");
+
+        fecharLogin.addEventListener("click", (event) => {
+
+            event.preventDefault();
+            window.location.href = "../../index.html"
+        })
+    }
 }
 
 Login.pegarDadosLogin();
+Login.fecharLogin();

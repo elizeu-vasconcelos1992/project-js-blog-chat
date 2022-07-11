@@ -139,6 +139,9 @@ class Pagina {
 
         if (parseInt(this.userId) == data.user.id) {
 
+            h4.innerText = `${data.user.username} (Você)`
+            h4.style.color = "blue"
+
             const btnEditar = document.createElement("button");
             btnEditar.classList = "editar";
             btnEditar.innerText = "Editar";
@@ -245,11 +248,13 @@ class Pagina {
         btnCommit.addEventListener("click", (event) => {
 
             event.preventDefault();
-
-            let post = {content: `${texto.value}`}
-
-            this.fazerPost(post) 
-        })
+            
+            if(texto.value != " " && texto.value != "") {
+              
+                let post = {content: `${texto.value}`}
+                this.fazerPost(post)
+            }
+        });
     }
 
 
@@ -379,16 +384,31 @@ class Pagina {
             });
         });
     }
+
+    static fecharEdicao() {
+
+        const fecharEdicao = document.querySelector("#fecharEditar");
+        const modal = document.querySelector("#modalEditar");
+
+        fecharEdicao.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            modal.style.display = "none";
+        })
+    }
 }
 
-await Pagina.getInfoUser()
+await Pagina.getInfoUser();
 
-Pagina.logout()
+Pagina.logout();
 
-await Pagina.getPosts()
+await Pagina.getPosts();
 
-Pagina.trocarPagina()
+Pagina.trocarPagina();
 
-Pagina.pegarDadosPost()
+Pagina.pegarDadosPost();
 
-Pagina.deletarDadosPost()
+Pagina.deletarDadosPost();
+
+Pagina.fecharEdicao();

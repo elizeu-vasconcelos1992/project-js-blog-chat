@@ -1,7 +1,8 @@
 /* Style Cadastro*/
 
 body {
-    font-family: "Montserrat"
+    font-family: "Montserrat";
+ 
 }
 
 .mainCadastro {
@@ -30,6 +31,16 @@ body {
     display: flex;
     justify-content: flex-end;
     margin: 0.875rem 1.25rem 0 0;
+}
+
+#fecharCadastro {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
 }
 
 .container h2 {
@@ -193,6 +204,17 @@ body {
     background-color: white;
 }
 
+#modalEditar div span {
+    width: 26rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ed7664;
+    cursor: pointer;
+    display: flex;
+    cursor: pointer;
+    justify-content: flex-end;
+}
+
 #modalEditar div h3 {
     color: #6495ED;
 }
@@ -336,6 +358,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #F3F3F3;
 
 }
@@ -355,7 +378,9 @@ body {
     border-radius: 5px;
     padding: 1.125rem 2.5rem 1.125rem 1.125rem;
     resize: none;
+    margin: 0 auto;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #divCommit textarea:focus {
@@ -473,3 +498,150 @@ body {
     border-radius: 5px;
 }
 
+
+@media  (max-width: 640px) {
+
+    #headerIndex {
+        height: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #headerIndex div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #divCommit {
+        width: inherit;
+        margin: 1.375rem 0 2.25rem 0;   
+    }
+
+    #posts {
+        width: inherit;
+        word-wrap: break-word;
+    }
+
+    
+    #divCommit textarea {
+        width: inherit;
+        height: 6.063rem;
+        font-family: "Montserrat";
+        text-align: justify;
+        background: #FFFFFF;
+        border: none;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 1.125rem 2.5rem 1.125rem 1.125rem;
+        resize: none;
+        margin: 0 auto;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    #posts {
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #posts img {
+        display: none;
+    }
+    
+    #post {
+    
+        width: inherit;
+        display: flex;
+        background: #FFFFFF;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 1rem;
+        gap: 1.5rem;
+    
+    }
+
+    .mainCadastro .container {
+
+        width: inherit;
+        height: inherit;
+        
+    }
+
+    #modalLogin {
+        padding: 1rem;
+    }
+
+    #modalLogin p {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    #modalCadastro div {
+
+        gap: 10px;
+        margin: 1rem;
+
+    }
+
+    #modalEditar div {
+        width: 18rem;
+        height: 18rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align:justify;
+        padding: 1rem;
+        gap: 18px;
+        background-color: white;
+    }
+
+    #modalEditar div span {
+        width: 15rem;
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #ed7664;
+        cursor: pointer;
+        display: flex;
+        cursor: pointer;
+        justify-content: flex-end;
+    }
+
+    #modalEditar textarea {
+        width: 17rem;
+        height: 6.063rem;
+        font-family: "Montserrat";
+        text-align: justify;
+        background: #FFFFFF;
+        border: none;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 1.125rem 2.5rem 1.125rem 1.125rem;
+        resize: none;
+        overflow-y: hidden;
+    }
+    
+    #divApagar {
+        width: 18rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align:justify;
+        padding: 0.5rem;
+        gap: 50px;
+        background-color: white;
+    }
+
+    #buttonsSelecao {
+        width: 17.5rem;
+    }
+
+    
+    
+
+    
+}

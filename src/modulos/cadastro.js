@@ -156,6 +156,19 @@ class Cadastro {
             return
         })
     }
+
+    static fecharCadastro() {
+
+        const fecharCadastro = document.querySelector("#fecharCadastro");
+
+        fecharCadastro.addEventListener("click", (event) => {
+
+            event.preventDefault();
+            window.location.href = "../../index.html"
+        })
+    }
 }
 
 Cadastro.cadastrarUser();
+
+Cadastro.fecharCadastro();
