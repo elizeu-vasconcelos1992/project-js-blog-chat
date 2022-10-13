@@ -1,402 +1,376 @@
 class Pagina {
+  static userId = localStorage.getItem("userId");
+  static token = localStorage.getItem("token");
 
-    static userId = localStorage.getItem("userId");
-    static token = localStorage.getItem("token");
+  static async getInfoUser() {
+    let url = "https://blog-m2.herokuapp.com/users/";
 
-    static async getInfoUser() {
-        let url = "https://blog-m2.herokuapp.com/users/";
+    let options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.token} `,
+      },
+    };
 
-        let options = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization" : `Bearer ${this.token} `
-            },
-        }
+    if (this.token) {
+      let data = await fetch(`${url}${this.userId}`, options)
+        .then(res => {
+          return res.json();
+        })
+        .catch(err => {
+          return err;
+        });
 
-        if (this.token) {
-        let data = await fetch(`${url}${this.userId}`, options)
-        .then((res) => {return res.json()})
-        .catch((err) => {return err});
-        
-        this.listarUser(data);
-        }
+      this.listarUser(data);
     }
+  }
 
-    static listarUser(data) {
-        
-        if (this.token != null) {
+  static listarUser(data) {
+    if (this.token != null) {
+      const img = document.querySelector("#imgUser");
+      img.src = data.avatarUrl;
+      img.alt = "avatar do usuário";
 
-            const img = document.querySelector("#imgUser");
-            img.src = data.avatarUrl;
-            img.alt = "avatar do usuário";
+      const h3 = document.querySelector("#nameUser");
+      h3.innerText = data.username;
 
-            const h3 = document.querySelector("#nameUser");
-            h3.innerText = data.username;
+      const btn = document.querySelector("#btnLogout");
+      btn.innerText = "Logout";
+    } else {
+      const img = document.querySelector("#imgUser");
+      img.src = "../img/image 4.png";
+      img.alt = "avatar do usuário";
 
-            const btn = document.querySelector("#btnLogout");
-            btn.innerText = "Logout"
+      const h3 = document.querySelector("#nameUser");
+      h3.innerText = "Entre para poder interagir";
 
-        } else {
+      const btn = document.querySelector("#btnLogout");
+      btn.innerText = "Login";
 
-            const img = document.querySelector("#imgUser");
-            img.src = "/image 4.png";
-            img.alt = "avatar do usuário";
-
-            const h3 = document.querySelector("#nameUser");
-            h3.innerText = "Entre para poder interagir";
-
-            const btn = document.querySelector("#btnLogout");
-            btn.innerText = "Login";
-            
-            window.location.reload(); 
-        }
+      window.location.reload();
     }
+  }
 
-    static logout()  {
+  static logout() {
+    const logout = document.querySelector("#btnLogout");
 
-        const logout = document.querySelector("#btnLogout");
-        
-        logout.addEventListener("click", (event) => {
-            
-            event.preventDefault();
+    logout.addEventListener("click", event => {
+      event.preventDefault();
 
-            if (logout.innerText == "Logout") {
+      if (logout.innerText == "Logout") {
+        localStorage.removeItem("userId");
+        localStorage.removeItem("token");
 
-            localStorage.removeItem("userId");
-            localStorage.removeItem("token");
+        this.userId = localStorage.getItem("userId");
+        this.token = localStorage.getItem("token");
 
-            this.userId = localStorage.getItem("userId");
-            this.token = localStorage.getItem("token");
+        this.listarUser();
+      } else {
+        window.location.href = "../src/pages/login.html";
+      }
+    });
+  }
 
-            this.listarUser()
+  static async getPosts(page) {
+    let url = `https://blog-m2.herokuapp.com/posts?page=${page}`;
 
-            } else {
-                window.location.href = "/src/pages/login.html"
-            }
-        });   
+    let options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.token} `,
+      },
+    };
+
+    if (this.token) {
+      let response = await fetch(url, options)
+        .then(res => {
+          return res.json();
+        })
+        .catch(err => {
+          return err;
+        });
+
+      let dados = response.data;
+
+      dados.forEach(item => {
+        this.criarCard(item);
+      });
+
+      return response;
     }
+  }
 
-    static async getPosts(page) {
+  static criarCard(data) {
+    const posts = document.querySelector("#posts");
 
-        let url = `https://blog-m2.herokuapp.com/posts?page=${page}`;
+    const divPost = document.createElement("div");
+    divPost.id = "post";
 
-        let options = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization" : `Bearer ${this.token} `
-            },
-        }
+    const img = document.createElement("img");
+    img.src = data.user.avatarUrl;
 
-        if (this.token) {
+    const divConteudo = document.createElement("div");
+    divConteudo.id = "conteudoPost";
 
-            let response = await fetch(url, options)
-            .then((res) => {return res.json()})
-            .catch((err) => {return err});
+    const h4 = document.createElement("h4");
+    h4.innerText = data.user.username;
 
-            let dados = response.data;
-            
-            dados.forEach((item) => {
+    const p = document.createElement("p");
+    p.innerText = data.content;
 
-                this.criarCard(item)
-            });
-            
-            return response
-        }
+    divConteudo.append(h4, p);
+
+    const divEdicao = document.createElement("div");
+    divEdicao.id = "editarPost";
+
+    let novaData = this.tratarData(data.createdAt);
+
+    const span = document.createElement("span");
+    span.innerText = novaData;
+
+    divEdicao.append(span);
+
+    if (parseInt(this.userId) == data.user.id) {
+      h4.innerText = `${data.user.username} (Você)`;
+      h4.style.color = "blue";
+
+      const btnEditar = document.createElement("button");
+      btnEditar.classList = "editar";
+      btnEditar.innerText = "Editar";
+      btnEditar.id = data.id;
+
+      const btnApagar = document.createElement("button");
+      btnApagar.classList = "apagar";
+      btnApagar.innerText = "Apagar";
+      btnApagar.id = data.id;
+
+      divEdicao.append(btnEditar, btnApagar, span);
+
+      divPost.append(img, divConteudo, divEdicao);
+
+      posts.append(divPost);
+
+      this.editarDadosPost();
+      this.deletarDadosPost();
+    } else {
+      divPost.append(img, divConteudo, divEdicao);
+
+      posts.append(divPost);
     }
+  }
 
-    static criarCard (data) {
-       
+  static trocarPagina() {
+    const btnDireita = document.querySelector("#direita");
+    const btnEsquerda = document.querySelector("#esquerda");
+
+    let posicao = 1;
+
+    btnDireita.addEventListener("click", event => {
+      event.preventDefault();
+
+      posicao += 1;
+
+      const posts = document.querySelector("#posts");
+      posts.innerHTML = "";
+
+      this.getPosts(posicao);
+    });
+
+    btnEsquerda.addEventListener("click", event => {
+      event.preventDefault();
+
+      if (posicao > 1) {
+        posicao -= 1;
+
         const posts = document.querySelector("#posts");
+        posts.innerHTML = "";
 
-        const divPost = document.createElement("div");
-        divPost.id = "post";
+        this.getPosts(posicao);
+      }
+    });
+  }
 
-        const img = document.createElement("img");
-        img.src = data.user.avatarUrl;
+  static tratarData(dado) {
+    let data = `${dado.split("")[8]}${dado.split("")[9]}/${
+      dado.split("-")[1]
+    }/${dado.split("-")[0]}`;
 
-        const divConteudo = document.createElement("div");
-        divConteudo.id = "conteudoPost";
+    return data;
+  }
 
-        const h4 = document.createElement("h4");
-        h4.innerText = data.user.username;
+  static async fazerPost(data) {
+    let url = "https://blog-m2.herokuapp.com/posts";
 
-        const p = document.createElement("p");
-        p.innerText = data.content;
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.token} `,
+      },
+      body: JSON.stringify(data),
+    };
 
-        divConteudo.append(h4, p);
-
-        const divEdicao = document.createElement("div");
-        divEdicao.id = "editarPost";
-
-        let novaData = this.tratarData(data.createdAt);
-
-        const span = document.createElement("span");
-        span.innerText = novaData;
-
-        divEdicao.append(span);
-
-        if (parseInt(this.userId) == data.user.id) {
-
-            h4.innerText = `${data.user.username} (Você)`
-            h4.style.color = "blue"
-
-            const btnEditar = document.createElement("button");
-            btnEditar.classList = "editar";
-            btnEditar.innerText = "Editar";
-            btnEditar.id = data.id;
-
-            const btnApagar = document.createElement("button");
-            btnApagar.classList = "apagar";
-            btnApagar.innerText = "Apagar"
-            btnApagar.id = data.id;
-
-            divEdicao.append(btnEditar, btnApagar, span);
-
-            divPost.append(img, divConteudo, divEdicao);
-
-            posts.append(divPost);
-
-            this.editarDadosPost()
-            this.deletarDadosPost()
-
-        } else {
-
-            divPost.append(img, divConteudo, divEdicao);
-
-            posts.append(divPost);
-
-        }
-    }
-
-    static trocarPagina() {
-
-        const btnDireita = document.querySelector("#direita");
-        const btnEsquerda = document.querySelector("#esquerda");
-        
-        let posicao = 1;
-
-        btnDireita.addEventListener("click", (event) => {
-
-            event.preventDefault();
-
-            posicao += 1;
-
-            const posts = document.querySelector("#posts");
-            posts.innerHTML = "";
-           
-            this.getPosts(posicao);
-        });
-
-        btnEsquerda.addEventListener("click", (event) => {
-
-            event.preventDefault();
-
-            if (posicao > 1) {
-
-                posicao -= 1
-                
-                const posts = document.querySelector("#posts");
-                posts.innerHTML = "";
-            
-                this.getPosts(posicao);
-            }
+    if (this.token) {
+      let response = await fetch(url, options)
+        .then(res => {
+          return res.json();
         })
-    }
-
-
-    static tratarData(dado) {
-
-        let data = `${dado.split("")[8]}${dado.split("")[9]}/${dado.split("-")[1]}/${dado.split("-")[0]}`
-
-        return data
-
-    }
-
-
-    static async fazerPost(data) {
-
-        let url = "https://blog-m2.herokuapp.com/posts";
-
-        let options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization" : `Bearer ${this.token} `
-            },
-            body: JSON.stringify(data)
-        }
-
-        if (this.token) {
-
-            let response = await fetch(url, options)
-            .then((res) => {return res.json()})
-            .catch((err) => {return err});
-
-            if(response) {window.location.reload()}
-        }
-
-    }
-
-
-    static pegarDadosPost() {
-
-        const btnCommit = document.querySelector("#buttonCommit");
-        const texto = document.querySelector("#texto");
-
-        btnCommit.addEventListener("click", (event) => {
-
-            event.preventDefault();
-            
-            if(texto.value != " " && texto.value != "") {
-              
-                let post = {content: `${texto.value}`}
-                this.fazerPost(post)
-            }
+        .catch(err => {
+          return err;
         });
+
+      if (response) {
+        window.location.reload();
+      }
     }
+  }
 
+  static pegarDadosPost() {
+    const btnCommit = document.querySelector("#buttonCommit");
+    const texto = document.querySelector("#texto");
 
-    static async editarPost(id, data) {
+    btnCommit.addEventListener("click", event => {
+      event.preventDefault();
 
-        let url = `https://blog-m2.herokuapp.com/posts/${id}`;
+      if (texto.value != " " && texto.value != "") {
+        let post = { content: `${texto.value}` };
+        this.fazerPost(post);
+      }
+    });
+  }
 
-        let options = {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization" : `Bearer ${this.token} `
-            },
-            body: JSON.stringify(data)
-        }
+  static async editarPost(id, data) {
+    let url = `https://blog-m2.herokuapp.com/posts/${id}`;
 
-        if (this.token) {
+    let options = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.token} `,
+      },
+      body: JSON.stringify(data),
+    };
 
-            let response = await fetch(url, options)
-            .then((res) => {return res.json()})
-            .catch((err) => {return err});
-
-            if(response) {window.location.reload()}
-
-            return response
-        }
-    }
-
-
-    static editarDadosPost() {
-
-        const btnEditar = document.querySelectorAll(".editar");
-        
-        btnEditar.forEach((btn) => {
-            
-            btn.addEventListener("click", (event) => {
-                
-                event.preventDefault();
-
-                let btnId = event.target.id;
-
-                let post = event.target.parentElement.previousSibling.childNodes[1].innerText;
-
-                const divEditar = document.querySelector("#modalEditar");
-                const textarea = document.querySelector("#textareaEditar");
-                const btnEditar = document.querySelector("#btnModalEditar");
-
-                divEditar.style.display = "flex";
-
-                textarea.innerText = post;
-
-                btnEditar.addEventListener("click", (event) => {
-
-                    event.preventDefault();
-
-                    let postEditado = {content: textarea.value};
-
-                    this.editarPost(btnId, postEditado);
-
-                    divEditar.style.display = "none";
-
-                    return
-
-                });
-
-            });
-        });
-    }
-
-
-    static async deletarPost(id) {
-
-        let url = `https://blog-m2.herokuapp.com/posts/${id}`;
-
-        let options = {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization" : `Bearer ${this.token} `
-            }
-        }
-
-        if (this.token) {
-
-            let response = await fetch(url, options)
-            .then((res) => {res.json()})
-            .catch((err) => {console.log(err)});
-
-            window.location.reload();
-
-            return response;
-        }
-    }
-
-
-    static deletarDadosPost() {
-
-        const btnApagar = document.querySelectorAll(".apagar");
-
-        btnApagar.forEach((btn) => {
-
-            btn.addEventListener("click", (event) => {
-
-                event.preventDefault();
-
-                let btnId = event.target.id;
-
-                const modalDeletar = document.querySelector("#modalApagar")
-                const voltar = document.querySelector("#naoDeletarPost");
-                const confirmar = document.querySelector("#btnModalApagar");
-
-                modalDeletar.style.display = "flex";
-
-                voltar.addEventListener("click", (event) => {
-
-                    event.preventDefault();
-
-                    modalDeletar.style.display = "none";
-                })
-
-                confirmar.addEventListener("click", (event) => {
-
-                    event.preventDefault();
-
-                    this.deletarPost(btnId);
-                });
-            });
-        });
-    }
-
-    static fecharEdicao() {
-
-        const fecharEdicao = document.querySelector("#fecharEditar");
-        const modal = document.querySelector("#modalEditar");
-
-        fecharEdicao.addEventListener("click", (event) => {
-
-            event.preventDefault();
-
-            modal.style.display = "none";
+    if (this.token) {
+      let response = await fetch(url, options)
+        .then(res => {
+          return res.json();
         })
+        .catch(err => {
+          return err;
+        });
+
+      if (response) {
+        window.location.reload();
+      }
+
+      return response;
     }
+  }
+
+  static editarDadosPost() {
+    const btnEditar = document.querySelectorAll(".editar");
+
+    btnEditar.forEach(btn => {
+      btn.addEventListener("click", event => {
+        event.preventDefault();
+
+        let btnId = event.target.id;
+
+        let post =
+          event.target.parentElement.previousSibling.childNodes[1].innerText;
+
+        const divEditar = document.querySelector("#modalEditar");
+        const textarea = document.querySelector("#textareaEditar");
+        const btnEditar = document.querySelector("#btnModalEditar");
+
+        divEditar.style.display = "flex";
+
+        textarea.innerText = post;
+
+        btnEditar.addEventListener("click", event => {
+          event.preventDefault();
+
+          let postEditado = { content: textarea.value };
+
+          this.editarPost(btnId, postEditado);
+
+          divEditar.style.display = "none";
+
+          return;
+        });
+      });
+    });
+  }
+
+  static async deletarPost(id) {
+    let url = `https://blog-m2.herokuapp.com/posts/${id}`;
+
+    let options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.token} `,
+      },
+    };
+
+    if (this.token) {
+      let response = await fetch(url, options)
+        .then(res => {
+          res.json();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+      window.location.reload();
+
+      return response;
+    }
+  }
+
+  static deletarDadosPost() {
+    const btnApagar = document.querySelectorAll(".apagar");
+
+    btnApagar.forEach(btn => {
+      btn.addEventListener("click", event => {
+        event.preventDefault();
+
+        let btnId = event.target.id;
+
+        const modalDeletar = document.querySelector("#modalApagar");
+        const voltar = document.querySelector("#naoDeletarPost");
+        const confirmar = document.querySelector("#btnModalApagar");
+
+        modalDeletar.style.display = "flex";
+
+        voltar.addEventListener("click", event => {
+          event.preventDefault();
+
+          modalDeletar.style.display = "none";
+        });
+
+        confirmar.addEventListener("click", event => {
+          event.preventDefault();
+
+          this.deletarPost(btnId);
+        });
+      });
+    });
+  }
+
+  static fecharEdicao() {
+    const fecharEdicao = document.querySelector("#fecharEditar");
+    const modal = document.querySelector("#modalEditar");
+
+    fecharEdicao.addEventListener("click", event => {
+      event.preventDefault();
+
+      modal.style.display = "none";
+    });
+  }
 }
 
 await Pagina.getInfoUser();

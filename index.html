@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/src/styles/reset.css">
-  <link rel="stylesheet" href="/src/styles/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <title>m2-entrega-blog-m2</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/styles/reset.css" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>m2-entrega-blog-m2</title>
+  </head>
+  <body>
+    <header id="headerIndex">
+      <div>
+        <img src="./img/image 4.png" alt="" id="imgUser" />
+        <h3 id="nameUser">Entre para poder interagir</h3>
+      </div>
+      <button id="btnLogout">Login</button>
+    </header>
 
-  <header id="headerIndex">
-    <div>
-      <img src="/img/image 4.png" alt="" id="imgUser">
-      <h3 id="nameUser">Entre para poder interagir</h3>
-    </div>
-    <button id="btnLogout">Login</button>
-  </header>
+    <main id="mainIndex">
+      <div id="divCommit">
+        <textarea
+          name="commit"
+          placeholder="Comece seu texto aqui"
+          id="texto"
+        ></textarea>
+        <button id="buttonCommit">+</button>
+      </div>
 
-  <main id="mainIndex">
+      <div id="posts"></div>
 
-    <div id="divCommit">
-      <textarea name="commit" placeholder= "Comece seu texto aqui" id="texto"></textarea>
-      <button id="buttonCommit">+</button>
-    </div>
+      <div id="pages">
+        <button id="esquerda">Anterior</button>
+        <button id="direita">Próxima</button>
+      </div>
+    </main>
 
-    <div id="posts">
-    </div>
-
-    <div id="pages">
-      <button id="esquerda">Anterior</button>
-      <button id="direita">Próxima</button>
-    </div>
-  </main>
-
-  <div id="modalEditar">
-    <div id="divEditar">
-      <span id="fecharEditar">X</span>
+    <div id="modalEditar">
+      <div id="divEditar">
+        <span id="fecharEditar">X</span>
         <h3 id="divEditarH3">Edite seu comentário</h3>
-        <textarea id="textareaEditar" ></textarea>
+        <textarea id="textareaEditar"></textarea>
         <button id="btnModalEditar">Editar</button>
+      </div>
     </div>
-  </div>
 
-  <div id="modalApagar">
-    <div id="divApagar">
+    <div id="modalApagar">
+      <div id="divApagar">
         <h3 id="divApagarH3">Tem certeza que quer apagar seu post?</h3>
         <div id="buttonsSelecao">
           <button id="naoDeletarPost">Voltar</button>
           <button id="btnModalApagar">Confirmar</button>
         </div>
+      </div>
     </div>
-  </div>
-  
 
-  <script type="module" src="./src/script.js"></script>
-</body>
+    <script type="module" src="./src/script.js"></script>
+  </body>
 </html>

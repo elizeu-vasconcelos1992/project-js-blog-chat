@@ -1,378 +1,522 @@
 /* Style Cadastro*/
 
 body {
-    font-family: "Montserrat";
- 
+  font-family: "Montserrat";
 }
 
 .mainCadastro {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F9F9F9;
-    
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
 }
 
 .container {
-    width: 26.75rem;
-    height: 25rem;
-    display: flex;
-    flex-direction: column;
-    background-color: #6495ED;
+  width: 26.75rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #6495ed;
 }
 
 .container span {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    margin: 0.875rem 1.25rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.875rem 1.25rem 0 0;
 }
 
 #fecharCadastro {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: -10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -10px;
 }
 
 .container h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: white;
-    display: flex;
-    justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1.875rem;
-    gap: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.875rem;
+  gap: 1.2rem;
 }
 
 .container form input {
-    width: 15.375rem;
-    height: 2.625rem;
-    padding: 0.75rem;
-    border-radius: 4px;
-    border: none;
-    
+  width: 15.375rem;
+  height: 2.625rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: none;
 }
 
 .container form input:focus {
-    outline: none;
+  outline: none;
 }
 
 .container form button {
-    width: 8.25rem;
-    height: 2.625rem;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background-color: #EDBC64;
+  width: 8.25rem;
+  height: 2.625rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #edbc64;
 }
 
 #containerCadastro {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 /*Style Login*/
 
 #containerLogin {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 /*Style Login Modal*/
 
 #modalLogin {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    position: fixed;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(100, 149, 237, 0.65);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(100, 149, 237, 0.65);
 }
 
 #modalLogin div {
-    width: 30rem;
-    height: 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    background-color: white;
+  width: 30rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  background-color: white;
 }
 
 #modalLogin div h3 {
-    color: red;
+  color: red;
 }
 
 #modalLogin div a {
-    color: #6495ED;
-    font-weight: 800;
-    text-decoration: underline;
+  color: #6495ed;
+  font-weight: 800;
+  text-decoration: underline;
 }
-
 
 /*Style Cadastro Modal*/
 
 #modalCadastro {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    position: fixed;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(100, 149, 237, 0.65);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(100, 149, 237, 0.65);
 }
 
 #modalCadastro div {
-    width: 30rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align:justify;
-    padding: 2rem;
-    gap: 50px;
-    background-color: white;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  padding: 2rem;
+  gap: 50px;
+  background-color: white;
 }
 
 #modalCadastro div h3 {
-    color: red;
+  color: red;
 }
 
 #modalCadastro div span {
-    font-size: 1rem;
-    font-weight: 600;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 #fecharModalCadastro {
-
-    width: 8.25rem;
-    height: 2.625rem;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background-color: #EDBC64;
-
+  width: 8.25rem;
+  height: 2.625rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #edbc64;
 }
 
 /*Style Modal Editar Comentário*/
 
 #modalEditar {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    position: fixed;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(100, 149, 237, 0.65);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(100, 149, 237, 0.65);
 }
 
 #modalEditar div {
-    width: 30rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align:justify;
-    padding: 2rem;
-    gap: 50px;
-    background-color: white;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  padding: 2rem;
+  gap: 50px;
+  background-color: white;
 }
 
 #modalEditar div span {
-    width: 26rem;
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: #ed7664;
-    cursor: pointer;
-    display: flex;
-    cursor: pointer;
-    justify-content: flex-end;
+  width: 26rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ed7664;
+  cursor: pointer;
+  display: flex;
+  cursor: pointer;
+  justify-content: flex-end;
 }
 
 #modalEditar div h3 {
-    color: #6495ED;
+  color: #6495ed;
 }
 
 #modalEditar textarea {
-    width: 25rem;
-    height: 6.063rem;
-    font-family: "Montserrat";
-    text-align: justify;
-    background: #FFFFFF;
-    border: none;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    padding: 1.125rem 2.5rem 1.125rem 1.125rem;
-    resize: none;
-    overflow-y: hidden;
+  width: 25rem;
+  height: 6.063rem;
+  font-family: "Montserrat";
+  text-align: justify;
+  background: #ffffff;
+  border: none;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 1.125rem 2.5rem 1.125rem 1.125rem;
+  resize: none;
+  overflow-y: hidden;
 }
 
 #btnModalEditar {
-    width: 8.25rem;
-    height: 2.625rem;
-    cursor: pointer;
-    font-family: "Montserrat";
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background-color: #EDBC64;
+  width: 8.25rem;
+  height: 2.625rem;
+  cursor: pointer;
+  font-family: "Montserrat";
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #edbc64;
 }
 
 #modalEditar textarea:focus {
-    outline: none;
+  outline: none;
 }
 
 #modalEditar textarea::placeholder {
-    color: #989898;
+  color: #989898;
 }
 
 /*Style Modal Apagar Comentário*/
 
 #modalApagar {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    position: fixed;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(237, 100, 100, 0.65);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(237, 100, 100, 0.65);
 }
 
 #divApagar {
-    width: 30rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align:justify;
-    padding: 2rem;
-    gap: 50px;
-    background-color: white;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  padding: 2rem;
+  gap: 50px;
+  background-color: white;
 }
 
 #divApagar h3 {
-    color: #6495ED;
+  color: #6495ed;
 }
 
 #buttonsSelecao {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #naoDeletarPost {
-    width: 8.25rem;
-    height: 2.625rem;
-    cursor: pointer;
-    font-family: "Montserrat";
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background-color: #64ed72;
+  width: 8.25rem;
+  height: 2.625rem;
+  cursor: pointer;
+  font-family: "Montserrat";
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #64ed72;
 }
 
 #btnModalApagar {
-    width: 8.25rem;
-    height: 2.625rem;
-    cursor: pointer;
-    font-family: "Montserrat";
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background-color: #ed7664;
+  width: 8.25rem;
+  height: 2.625rem;
+  cursor: pointer;
+  font-family: "Montserrat";
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #ed7664;
 }
-
 
 /*Style Index*/
 
-
 #headerIndex {
-    height: 3.813rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.875rem;
-    background-color: #6495ED;
-
+  height: 3.813rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.875rem;
+  background-color: #6495ed;
 }
 
 #headerIndex div {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 #headerIndex div img {
-    width: 49px;
-    height: 46px;
-    border-radius: 100px;
+  width: 49px;
+  height: 46px;
+  border-radius: 100px;
 }
 
 #headerIndex div h3 {
-    color: white;
+  color: white;
 }
 
 #headerIndex button {
-    width: 6.25rem;
-    height: 1.875rem;
-    font-size: 1.125rem;
-    font-weight: 400;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    background-color: #EDBC64;
+  width: 6.25rem;
+  height: 1.875rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: #edbc64;
 }
 
 #mainIndex {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #F3F3F3;
-
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
 }
 
 #divCommit {
-    margin: 1.375rem 0 2.25rem 0;
+  margin: 1.375rem 0 2.25rem 0;
 }
 
 #divCommit textarea {
-    width: 37.563rem;
+  width: 37.563rem;
+  height: 6.063rem;
+  font-family: "Montserrat";
+  text-align: justify;
+  background: #ffffff;
+  border: none;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 1.125rem 2.5rem 1.125rem 1.125rem;
+  resize: none;
+  margin: 0 auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#divCommit textarea:focus {
+  outline: none;
+}
+
+#divCommit textarea::placeholder {
+  color: #989898;
+}
+
+#divCommit button {
+  width: 1.563rem;
+  height: 1.563rem;
+  font-size: 1.5rem;
+  border: none;
+  color: white;
+  background-color: #edbc64;
+  position: absolute;
+  cursor: pointer;
+  margin: 65px 0 0 -35px;
+}
+
+/*Style Index Posts*/
+
+#posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#post {
+  width: 37.563rem;
+  display: flex;
+  background: #ffffff;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 1rem;
+  gap: 1.5rem;
+  word-break: break-all;
+}
+
+#editarPost {
+  width: 20%;
+}
+
+#post img {
+  width: 4.438rem;
+  height: 4.438rem;
+  border-radius: 100px;
+}
+
+#conteudoPost {
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#conteudoPost h4 {
+  font-size: 1rem;
+}
+
+#conteudoPost p {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: justify;
+  color: #5f5c5c;
+}
+
+#editarPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 0.75rem;
+}
+
+#editarPost button {
+  font-family: "Montserrat";
+  font-weight: 600;
+  height: 1.5rem;
+  border: none;
+  background-color: #edbc64;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.editar {
+  color: blue;
+}
+
+.apagar {
+  color: red;
+}
+
+#editarPost span {
+  font-size: 0.75rem;
+}
+
+/*Style Paginas*/
+
+#pages {
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+#pages button {
+  font-family: "Montserrat";
+  font-weight: 600;
+  width: 5rem;
+  height: 2.5rem;
+  border: none;
+  background-color: #edbc64;
+  color: #6495ed;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+@media (max-width: 640px) {
+  #headerIndex {
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #headerIndex div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #divCommit {
+    width: inherit;
+    margin: 1.375rem 0 2.25rem 0;
+  }
+
+  #posts {
+    width: inherit;
+    word-wrap: break-word;
+  }
+
+  #divCommit textarea {
+    width: inherit;
     height: 6.063rem;
     font-family: "Montserrat";
     text-align: justify;
-    background: #FFFFFF;
+    background: #ffffff;
     border: none;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -381,276 +525,104 @@ body {
     margin: 0 auto;
     overflow-y: hidden;
     overflow-x: hidden;
-}
+  }
 
-#divCommit textarea:focus {
-    outline: none;
-}
-
-#divCommit textarea::placeholder {
-    color: #989898;
-}
-
-#divCommit button {
-    width: 1.563rem;
-    height: 1.563rem;
-    font-size: 1.5rem;
-    border: none;
-    color: white;
-    background-color: #EDBC64;
-    position: absolute;
-    cursor: pointer;
-    margin: 65px 0 0 -35px
-}
-
-/*Style Index Posts*/
-
-#posts {
+  #posts {
+    width: inherit;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-}
+  }
 
-#post {
+  #posts img {
+    display: none;
+  }
 
-    width: 37.563rem;
+  #post {
+    width: inherit;
     display: flex;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     padding: 1rem;
     gap: 1.5rem;
     word-break: break-all;
+  }
 
-}
+  #editarPost {
+    width: 12rem;
+  }
 
-#editarPost {
-    width: 20%;
-}
+  .mainCadastro .container {
+    width: inherit;
+    height: inherit;
+  }
 
-#post img {
-    width: 4.438rem;
-    height: 4.438rem;
-    border-radius: 100px;
-    
-}
+  #modalLogin {
+    padding: 1rem;
+  }
 
-#conteudoPost {
-    width: 40rem;
+  #modalLogin p {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  #modalCadastro div {
+    gap: 10px;
+    margin: 1rem;
+  }
+
+  #modalEditar div {
+    width: 18rem;
+    height: 18rem;
     display: flex;
     flex-direction: column;
-   
-}
-
-#conteudoPost h4 {
-    font-size: 1rem;
-}
-
-#conteudoPost p {
-    font-size: 1rem;
-    font-weight: 400;
+    align-items: center;
+    justify-content: center;
     text-align: justify;
-    color: #5F5C5C;
-}
+    padding: 1rem;
+    gap: 18px;
+    background-color: white;
+  }
 
-#editarPost {
+  #modalEditar div span {
+    width: 15rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ed7664;
+    cursor: pointer;
+    display: flex;
+    cursor: pointer;
+    justify-content: flex-end;
+  }
+
+  #modalEditar textarea {
+    width: 17rem;
+    height: 6.063rem;
+    font-family: "Montserrat";
+    text-align: justify;
+    background: #ffffff;
+    border: none;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 1.125rem 2.5rem 1.125rem 1.125rem;
+    resize: none;
+    overflow-y: hidden;
+  }
+
+  #divApagar {
+    width: 18rem;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    gap: 0.75rem;
-}
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    padding: 0.5rem;
+    gap: 50px;
+    background-color: white;
+  }
 
-#editarPost button {
-    font-family: "Montserrat";
-    font-weight: 600;
-    height: 1.5rem;
-    border: none;
-    background-color: #EDBC64;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.editar {
-    color: blue;
-}
-
-.apagar {
-    color: red;
-}
-
-#editarPost span {
-    font-size: 0.75rem;
-}
-
-/*Style Paginas*/
-
-#pages {
-    width: 20rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem;
-}
-
-#pages button {
-    font-family: "Montserrat";
-    font-weight: 600;
-    width: 5rem;
-    height: 2.5rem;
-    border: none;
-    background-color: #EDBC64;
-    color: #6495ED;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-
-@media  (max-width: 640px) {
-
-    #headerIndex {
-        height: 10rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #headerIndex div {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #divCommit {
-        width: inherit;
-        margin: 1.375rem 0 2.25rem 0;   
-    }
-
-    #posts {
-        width: inherit;
-        word-wrap: break-word;
-    }
-    
-    #divCommit textarea {
-        width: inherit;
-        height: 6.063rem;
-        font-family: "Montserrat";
-        text-align: justify;
-        background: #FFFFFF;
-        border: none;
-        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 5px;
-        padding: 1.125rem 2.5rem 1.125rem 1.125rem;
-        resize: none;
-        margin: 0 auto;
-        overflow-y: hidden;
-        overflow-x: hidden;
-    }
-
-    #posts {
-        width: inherit;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    #posts img {
-        display: none;
-    }
-    
-    #post {
-    
-        width: inherit;
-        display: flex;
-        background: #FFFFFF;
-        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 5px;
-        padding: 1rem;
-        gap: 1.5rem;
-        word-break: break-all;
-    }
-
-    #editarPost {
-
-        width: 12rem;
-    }
-
-    .mainCadastro .container {
-
-        width: inherit;
-        height: inherit;
-        
-    }
-
-    #modalLogin {
-        padding: 1rem;
-    }
-
-    #modalLogin p {
-        text-align: center;
-        padding: 1rem;
-    }
-
-    #modalCadastro div {
-
-        gap: 10px;
-        margin: 1rem;
-
-    }
-
-    #modalEditar div {
-        width: 18rem;
-        height: 18rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align:justify;
-        padding: 1rem;
-        gap: 18px;
-        background-color: white;
-    }
-
-    #modalEditar div span {
-        width: 15rem;
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: #ed7664;
-        cursor: pointer;
-        display: flex;
-        cursor: pointer;
-        justify-content: flex-end;
-    }
-
-    #modalEditar textarea {
-        width: 17rem;
-        height: 6.063rem;
-        font-family: "Montserrat";
-        text-align: justify;
-        background: #FFFFFF;
-        border: none;
-        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 5px;
-        padding: 1.125rem 2.5rem 1.125rem 1.125rem;
-        resize: none;
-        overflow-y: hidden;
-    }
-    
-    #divApagar {
-        width: 18rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align:justify;
-        padding: 0.5rem;
-        gap: 50px;
-        background-color: white;
-    }
-
-    #buttonsSelecao {
-        width: 17.5rem;
-    }
-
-    
-    
-
-    
+  #buttonsSelecao {
+    width: 17.5rem;
+  }
 }
