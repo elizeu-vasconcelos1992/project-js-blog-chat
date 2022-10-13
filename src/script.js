@@ -67,7 +67,7 @@ class Pagina {
 
         this.listarUser();
       } else {
-        window.location.href = "../src/pages/login.html";
+        window.location.href = "/src/pages/login.html";
       }
     });
   }
