@@ -1,66 +1,34 @@
-🏁 Entrega - Blog M2
-===================
+<h1>💻 BLOG CHAT</h1>
 
-Introdução
-----------
+<div style="display:flex; justify-content:center">
+<img width="80%" src="./src/assets/blog-chat.jpg"/>
+</div>
+<br>
 
-A ideia desse projeto é simular uma comunidade, onde todos os membros
-cadastrados podem consumir, criar, atualizar e deletar publicações de
-texto. Também por em pratica o fluxo de autenticação em APIs.
+<p style="text-align:justify">O blog chat é uma aplicação que simula um microblog onde os usuários podem interagir em fila e visualizar o histórico de comentários de todas as pessoas que fizeram alguma postagem. Na aplicação, o usuário deve estar cadastrado e logado para poder ver e postar alguma coisa, do contrário, uma página anômima é apresentada.</p><br>
 
-Tarefas
--------
+<h1>🔨 RECURSOS</h1>
 
-**Importante!**
+<ul>
+<li><strong>Cadastro:</strong> para utilizar a aplicação é necessário realizar cadastro.</li>
+<li><strong>Login:</strong> o usuário cadastrado pode realizar login.</li>
+<li><strong>Logout:</strong> o usuário cadastrado pode sair da aplicação.</li>
+<li><strong>Perfil:</strong> o usuário logado pode visualizar sua foto de perfil e realizar postagens.</li>
+<li><strong>Postagem:</strong> é possível postar um texto, editá-lo e excluí-lo, sem afetar as postagens dos demais usuários.</li>
+<li><strong>Visualização:</strong> é possível ver o que os demais usuários postaram.</li>
+<li><strong>Paginação:</strong> é possível navegar pelo histórico de postagens do microblog.</li>
+<li><strong>Modo anômino:</strong> é possível ver a estrutura da aplicação sem estar logado</li>
+</ul><br>
 
--   Leia a
-    [documentação](https://gitlab.com/-/snippets/2363840)
-    da API para conhecer seus endpoints e como trabalhar em cada um
-    deles.
+<h1>🚀 TECNOLOGIAS</h1>
 
-1.  Construa uma página de cadastro, com um formulário que receba esses
-    dados:
+<ul>
+<li>JAVASCRIPT</li>
+<li>HTML</li>
+<li>CCS</li>
+<li>POO</li>
+</ul><br>
 
-        {
-            "username": "username", // Um nome de usuário único de até 12 digitos.
-            "email": "mail@mail.com", // Um e-mail único para cada usuário.
-            "avatarUrl": "https://github.com/wence-.png", // O link de uma imagem para o avatar do usuário.
-            "password": "123" // com, pelo menos: 6 dígitos, 1 letra maiúscula e 1 número.
-        }
+<h1>🔗 LINK</h1>
 
-2.  Construa uma página de login, com um formulário que recebe um
-    **email** e uma **senha**. **O usuário só poderá ser redirecionado a
-    pagina principal do seu projeto se o login for bem sucedido,
-    retornando um token e o id do usuário.**
-
-3.  Construa uma pagina principal, onde o usuário autenticado pode **escrever**
-    um post e **ler** todos os posts existentes na API.
-
-4.  O dono do post deverá ter a opção de atualizar ou deletar esse
-    recurso. **APENAS o dono pode modificar ou excluir, nenhum outro
-    usuário deve conseguir fazer isso.** *Na API já existe uma validação
-    para isso, mas garanta que essa funcionalidade fique intuitiva no
-    front-end.*
-
-5.  As páginas precisam estar separadas, cada uma estruturada em um
-    arquivo HTML e com arquivos JS separados.
-
-6.  Faça a versão mobile da aplicação.
-  
-7.  Aplique os conceitos de POO e Local Storage.
-
-**Aviso!**
-
--   Não esqueça que alguns endpoints necessitam de autenticação para a
-    requisição ser bem sucedida, veja na documentação quais exigem isso.
--   Caso tenha dúvidas, reveja as atividadas 'Manipulando Token'.
-
-Entrega
--------
-
-Faça o push do código para o seu repositório GitHub e implemente-o
-GitHub pages. Coloque seu repositório como **Privado** e adicione em
-**Configurações > Colaboradores e Times** o time **team-m2-correcoes**. No
-Canvas, por favor, envie sua url do GitHub Pages: (ex:
-https://nomedeusuario.github.io/oregon-trail-inheritance) e envie o link
-do seu repositório nos comentários.
+<a href="https://project-js-blog-chat.vercel.app/" target="_blank">LINK PARA O BLOG CHAT</a>
