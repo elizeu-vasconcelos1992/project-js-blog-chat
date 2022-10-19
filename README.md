@@ -26,6 +26,7 @@
 <li>JAVASCRIPT</li>
 <li>HTML</li>
 <li>CCS</li>
+<li>CONSUMO DE API</li>
 <li>POO</li>
 </ul><br>
 
