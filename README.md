@@ -5,7 +5,7 @@
 </div>
 <br>
 
-<p style="text-align:justify">O blog chat é uma aplicação que simula um microblog onde os usuários podem interagir em fila e visualizar o histórico de comentários de todas as pessoas que fizeram alguma postagem. Na aplicação, o usuário deve estar cadastrado e logado para poder ver e postar alguma coisa, do contrário, uma página anômima é apresentada. Aplicação responsiva.</p><br>
+<p style="text-align:justify">O blog chat é uma aplicação que simula um microblog onde os usuários podem interagir em fila e visualizar o histórico de comentários de todas as pessoas que fizeram alguma postagem. Na aplicação, o usuário deve estar cadastrado e logado para poder ver e postar alguma coisa, do contrário, uma página anômima é apresentada.</p><br>
 
 <h1>🔨 RECURSOS</h1>
 
@@ -18,6 +18,7 @@
 <li><strong>Visualização:</strong> é possível ver o que os demais usuários postaram.</li>
 <li><strong>Paginação:</strong> é possível navegar pelo histórico de postagens do microblog.</li>
 <li><strong>Modo anômino:</strong> é possível ver a estrutura da aplicação sem estar logado</li>
+<li><strong>Aplicação responsiva</strong></li>
 </ul><br>
 
 <h1>🚀 TECNOLOGIAS</h1>
